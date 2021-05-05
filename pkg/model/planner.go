@@ -172,7 +172,7 @@ func NewWorkflowPlanner(path string, noWorkflowRecurse bool) (WorkflowPlanner, e
 			_, err = f.Seek(0, 0)
 			if err != nil {
 				f.Close()
-				return nil, errors.WithMessagef(err, "error occuring when resetting io pointer, %s", wf.workflowFileInfo.Name())
+				return nil, errors.WithMessagef(err, "error occurring when resetting io pointer, %s", wf.workflowFileInfo.Name())
 			}
 			log.Debugf("Correcting if statements '%s'", f.Name())
 			content, err := ioutil.ReadFile(filepath.Join(wf.dirPath, wf.workflowFileInfo.Name()))
