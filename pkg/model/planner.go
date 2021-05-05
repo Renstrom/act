@@ -177,7 +177,7 @@ func NewWorkflowPlanner(path string, noWorkflowRecurse bool) (WorkflowPlanner, e
 			log.Debugf("Correcting if statements '%s'", f.Name())
 			content, err := ioutil.ReadFile(filepath.Join(wf.dirPath, wf.workflowFileInfo.Name()))
 			if err != nil {
-				return nil, errors.WithMessagef(err, "error occuring when reading file, %s", wf.workflowFileInfo.Name())
+				return nil, errors.WithMessagef(err, "error occurring when reading file, %s", wf.workflowFileInfo.Name())
 			}
 
 			err = FixIfStatement(content, workflow)
