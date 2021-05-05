@@ -181,7 +181,9 @@ func NewWorkflowPlanner(path string, noWorkflowRecurse bool) (WorkflowPlanner, e
 			}
 
 			err = FixIfStatement(content, workflow)
-
+			if err != nil {
+				return nil, errors.WithMessagef(err, "Error fixing if statement, %s", wf.workflowFileInfo.Name())
+			}
 			if workflow.Name == "" {
 				workflow.Name = wf.workflowFileInfo.Name()
 			}
